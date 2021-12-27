@@ -4,6 +4,10 @@
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 :root{
     --lateef:'Lateef', cursive;
     --raleway:'Raleway', sans-serif;
@@ -17,6 +21,15 @@ body{
     background-color: var(--bg-color);
 }
 
+/*  HERENCIA DE PROPIEDADES A MULTIPLES ELEMENTOS  */
+
+.logo, section, .container-title, .card, footer{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 /*  HEADER  */
 .header{
     width:100%;
@@ -24,9 +37,6 @@ body{
 .logo{
     width:100%;
     background:var(--pink-logo);
-    display:flex;
-    justify-content: center;
-    align-items: center;
 }
 .nav-bar {
     display: grid;
@@ -42,9 +52,22 @@ body{
     font-family: var(--lateef);
     font-weight: 400;
     list-style: none;
-    color:var(--black-navBar);
-    cursor:pointer;
 }
+.nav-bar ul li a{
+    color:var(--black-navBar);
+    text-decoration: none;
+}
+
+.nav-bar .icons{
+    padding:0 30px 0 0;
+     display:flex;
+     justify-content: flex-end;
+     align-items: center;
+}
+.nav-bar .icons img{
+    margin-right:10px;
+}
+
 
 /* ANCHO DE LOS ITEMS 1 Y 6, EN REVISIÓN */
 
@@ -60,10 +83,7 @@ body{
 
 section{
     width:100%;
-    display:flex;
-    justify-content: center;
     flex-wrap: wrap;
-    align-items: center;
     margin-bottom:3.8em;
 }
 .about-me img:nth-child(1){
@@ -94,9 +114,6 @@ section{
 
 .container-title{
     width:100%;
-    display:flex;
-    justify-content:center;
-    align-items: center;
     margin-bottom:25px;
 }
 .cards{
@@ -107,9 +124,6 @@ section{
     grid-gap: 30px;
 }
 .card{
-    display:flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
     position:relative;
 }
@@ -189,11 +203,74 @@ strong{
     margin-top:5px;
 }
 
+/**   FOOTER   **/
+footer{
+    padding:5em 3em 6.5em 5em;
+    background:#F0D8D5;
+    margin-top:10em;
+}
+footer .container-footer{
+    display: grid;
+    grid-template-columns: 150px 500px 130px 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 20px;
+}
+footer .container-footer strong{
+    font-family: var(--lateef);
+    font-weight: 400;
+    font-size: 32px;
+}
 
-/****  MEDIA QUERIES   *****/
+footer .container-footer li{
+    list-style: none;
+    line-height: 25px;
+    font-size: 15px;
+    font-family: var(--raleway);
+}
+
+footer .email-send{
+    display:flex;
+    align-items: flex-end;
+    margin-bottom:2em;
+}
+
+footer .container-footer input{
+    width:50%; 
+    padding:8.2px 0;
+    margin-right:5px;
+    border-radius:0;
+    border:1px solid #000;
+}
+footer .container-footer button{
+    padding:2px 4px;
+    border-radius:0;
+    border:1px solid #000;
+    background:#DBDBDB;
+    cursor: pointer;
+}
+
+footer .autor{
+    font-size: 15px;
+    font-family: var(--raleway);
+    font-weight: 400;
+    margin-top:3em;
+}
 
 
+
+
+                        /****  MEDIA QUERIES   *****/
+
+/**
+    Se hizo uso de display grid para maquetar la página web, excepto en el caso de la primera sección, donde se hizo uso de display flex para mayor facilidad a la hora de manipular los elementos por separados.
+**/
+
+/*
 @media (max-width:530px) {
+
+    .nav-bar{
+        display: none;
+    }
     
     .about-me img:nth-child(2){
         width:45%;
@@ -221,4 +298,9 @@ strong{
     .card .description{
         height: auto;
     }
+
+    footer .container-footer{
+        grid-template-columns:1fr;
+    }
 }
+*/
